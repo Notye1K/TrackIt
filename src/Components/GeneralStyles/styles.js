@@ -8,6 +8,10 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 
+    font-family: 'Lexend Deca', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+
     form{
         margin-top: 32.62px;
         margin-bottom: 25px;
@@ -17,6 +21,45 @@ const Container = styled.div`
         justify-content: center;
         align-items: center;
         gap: 6px;
+
+        input{
+            width: 303px;
+            height: 45px;
+            padding-left: 11px;
+            background: #FFFFFF;
+            border: 1px solid #D5D5D5;
+            border-radius: 5px;
+            
+            font-size: 19.976px;
+            line-height: 25px;
+
+            ::placeholder{
+                color: #DBDBDB;
+            }
+        }
+
+        button{
+            width: 303px;
+            height: 45px;
+
+            background: #52B6FF;
+            border: none;
+            border-radius: 4.63636px;
+
+            font-size: 20.976px;
+            line-height: 26px;
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+    }
+    
+    a{
+        font-size: 13.976px;
+        line-height: 17px;
+        text-align: center;
+        text-decoration-line: underline;
+        color: #52B6FF;
     }
 `
 export default Container

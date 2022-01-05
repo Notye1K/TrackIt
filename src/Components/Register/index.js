@@ -12,7 +12,7 @@ export default function Register(){
                 <input type="password" placeholder='senha' />
                 <input type="text" placeholder='nome' />
                 <input type="text" placeholder='foto' />
-                <button type="submit"> Entrar </button>
+                <button type="submit"> Cadastrar </button>
             </form>
             <Link to='/'>
                 <span>Já tem uma conta? Faça login!</span>
