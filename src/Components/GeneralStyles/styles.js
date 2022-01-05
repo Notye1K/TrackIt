@@ -29,6 +29,7 @@ const Container = styled.div`
             background: #FFFFFF;
             border: 1px solid #D5D5D5;
             border-radius: 5px;
+            background: ${props => props.loading===1 ? '#F2F2F2' : 'white'};
             
             font-size: 19.976px;
             line-height: 25px;
@@ -49,11 +50,12 @@ const Container = styled.div`
             font-size: 20.976px;
             line-height: 26px;
             text-align: center;
-
             color: #FFFFFF;
+
+            opacity: ${props => props.loading===1 ? '0.7' : "1"};
         }
     }
-    
+
     a{
         font-size: 13.976px;
         line-height: 17px;
