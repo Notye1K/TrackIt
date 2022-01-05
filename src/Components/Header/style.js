@@ -12,7 +12,7 @@ const Header = styled.header`
     background: #126BA5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-    font-family: 'Playball';
+    font-family: 'Playball', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 38.982px;
