@@ -4,7 +4,7 @@ const Container = styled.div`
     width: 100%;
     padding: 0 18px 0 17px;
     margin: 28px 0;
-    background: #E5E5E5;
+    background: #F2F2F2;
 
     display: flex;
     justify-content: space-between;

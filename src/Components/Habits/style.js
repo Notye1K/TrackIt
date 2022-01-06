@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Container = styled.div`
     min-height: 100vh;
-    background: #E5E5E5;
+    background: #F2F2F2;
     
     .space{
         height: 70px;
@@ -45,12 +45,6 @@ const Container = styled.div`
                 ::placeholder{
                     color: #DBDBDB;
                 }
-            }
-
-            .days{
-                display: flex;
-                gap: 4px;
-
             }
 
             .cancelOrSave{
@@ -96,24 +90,15 @@ const Container = styled.div`
             line-height: 22px;
             color: #666666; 
         }
+
+        .habits{
+            margin-bottom: 100px;
+
+            display:flex;
+            flex-direction: column;
+            gap: 10px;
+        }
     }
 `
 
-const Button = styled.button`
-    width: 30px;
-    height: 30px;
-    background: ${ props => props.days.includes(props.id) ? '#CFCFCF' : '#FFFFFF'};
-    border: 1px solid #D5D5D5;
-    border-radius: 5px;
-
-    font-family: 'Lexend Deca', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 19.976px;
-    line-height: 25px;
-    color: ${ props => props.days.includes(props.id) ? 'white' : '#DBDBDB'};
-`
-
-const styles = [Container, Button]
-
-export default styles
+export default Container
