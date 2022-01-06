@@ -1,10 +1,10 @@
 import Container from './style'
 
-export default function MyHabits() {
+export default function MyHabits({ setPlus }) {
     return (
         <Container>
             <h1>Meus hábitos</h1>
-            <button>+</button>
+            <button onClick={() => setPlus('')}>+</button>
         </Container>
     )
 }

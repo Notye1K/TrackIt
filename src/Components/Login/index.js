@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Loader from "react-loader-spinner"
 
 export default function Login() {
-    //const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [loading, setLoading] = useState(0)
     const [form, setForm] = useState(
@@ -25,7 +25,7 @@ export default function Login() {
             setLoading(0)
             console.log(response.data)
             // kleyton@tt.com 123
-            //navigate('/')
+            navigate('/hoje')
         })
         promise.catch(erro => {
             setLoading(0)

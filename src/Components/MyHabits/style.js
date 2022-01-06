@@ -3,14 +3,15 @@ import styled from 'styled-components'
 const Container = styled.div`
     width: 100%;
     padding: 0 18px 0 17px;
-    margin: 98px 0 28px 0;
+    margin: 28px 0;
+    background: #E5E5E5;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     h1{
-        font-family: Lexend Deca;
+        font-family: 'Lexend Deca', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 22.976px;
@@ -25,7 +26,7 @@ const Container = styled.div`
         border: none;
         border-radius: 4.63636px;
 
-        font-family: Lexend Deca;
+        font-family: 'Lexend Deca', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 26.976px;

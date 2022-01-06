@@ -50,7 +50,7 @@ export default function Register() {
                     disabled={loading === 1 && true}
                     onChange={e => setForm({ ...form, name: e.target.value })} />
 
-                <input type="text" required placeholder='foto' value={form.image}
+                <input type="url" required placeholder='foto' value={form.image}
                     disabled={loading === 1 && true}
                     onChange={e => setForm({ ...form, image: e.target.value })} />
 

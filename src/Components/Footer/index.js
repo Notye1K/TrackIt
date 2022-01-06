@@ -13,6 +13,7 @@ export default function Footer() {
                     <CircularProgressbar background={true} value={percentage} text='Hoje'
                         backgroundPadding='6'
                         styles={buildStyles({
+                            textSize: '17.976px',
                             backgroundColor: '#52B6FF',
                             pathColor: '#ffffff',
                             trailColor: '#52B6FF',
