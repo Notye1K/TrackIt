@@ -18,7 +18,7 @@ export default function Habits() {
     const [days, setDays] = useState([])
     const [success, setSuccess] = useState(true)
 
-    const { api } = useContext(UserContext)
+    const { api, setHabitsToday } = useContext(UserContext)
 
     const [habits, setHabits] = useState([])
 
@@ -31,6 +31,17 @@ export default function Habits() {
             })
             promise.catch(erro => alert(erro.response.data.details))
         }, [success, api.token]
+    )
+
+    useEffect(
+        () => {
+            const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today',
+                { headers: { Authorization: `Bearer ${api.token}` } })
+            promise.then(response => {
+                setHabitsToday(response.data)
+            })
+            promise.catch(erro => alert(erro.response.data.details))
+        }, [api.token, setHabitsToday]
     )
 
     function handleSave() {
@@ -88,6 +99,7 @@ export default function Habits() {
                         {habits.length === 0 && 'Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!'}
                     </span>
                 </main>
+                <div className='space' />
             </Container>
             <Footer />
         </>

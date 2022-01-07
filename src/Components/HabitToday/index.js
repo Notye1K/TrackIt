@@ -1,41 +1,22 @@
 import Container from "./style"
 import check from '../Images/check.svg'
-import {useContext, useEffect, useState} from 'react'
-import UserContext from '../../context'
-import axios from "axios"
 
-export default function HabitToday(){
-    const {api} = useContext(UserContext)
-
-    const [habits, setHabits] = useState([])
-
-    useEffect(
-        () => {
-            const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today',
-            { headers: { Authorization: `Bearer ${api.token}` } })
-            promise.then(response => setHabits(response.data))
-            promise.catch(erro => alert(erro.response.data.details))
-        }, [api.token]
-    )
-    
+export default function HabitToday(props){
+    function handleStatus(){
+        props.click(props.id, props.done)
+    }
     return (
-        <Container>
-            {habits.length === 0 ? "você não tem nenhum hábito cadastrado para hoje" : <Habit />}
-        </Container>
-    )
-}
-
-function Habit(){
-    return(
-        <>
+        <Container done={props.done}>
             <div className="info">
-                <h1>Ler 1 capítulo de livro</h1>
-                <p className='inf'>Sequência atual: <span>4 dias</span></p>
-                <p className='inf'>Seu recorde: <span>5 dias</span></p>
+                <h1>{props.name}</h1>
+                <p className='inf'>Sequência atual: <span className='day'>{props.sequence}
+                    {props.sequence === 1 || props.sequence === 0 ? ' dia' : ' dias'}</span></p>
+                <p className='inf'>Seu recorde: <span className={props.sequence === props.record && 'day'}>{props.record}
+                    {props.record === 1 || props.record === 0 ? ' dia' : ' dias'}</span></p>
             </div>
-            <div className="status">
+            <div className="status" onClick={handleStatus}>
                 <img src={check} alt="check" />
             </div>
-        </>
+        </Container>
     )
 }

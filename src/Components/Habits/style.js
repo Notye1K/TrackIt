@@ -92,7 +92,7 @@ const Container = styled.div`
         }
 
         .habits{
-            margin-bottom: 100px;
+            margin-bottom: 50px;
 
             display:flex;
             flex-direction: column;

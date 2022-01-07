@@ -27,12 +27,16 @@ const Container = styled.div `
         font-size: 12.976px;
         line-height: 16px;
         color: #666666;
+
+        .day{
+            color: ${props => props.done ? '#8FC549' : '#666666'};
+        }
     }
 
     .status{
         width: 69px;
         height: 69px;
-        background: #8FC549;
+        background: ${props => props.done ? '#8FC549' : '#EBEBEB'};
         border-radius: 5px;
 
         display: flex;
