@@ -21,7 +21,6 @@ const Container = styled.div`
     button{
         width: 40px;
         height: 35px;
-
         background: #52B6FF;
         border: none;
         border-radius: 4.63636px;
@@ -33,6 +32,10 @@ const Container = styled.div`
         line-height: 34px;
         text-align: center;
         color: #FFFFFF;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 

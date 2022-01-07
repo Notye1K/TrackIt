@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Container = styled.div `
+const Container = styled.div`
     height: 91px;
     background: #FFFFFF;
     padding: 13px 10px 15px 14px;

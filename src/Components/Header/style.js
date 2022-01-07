@@ -27,8 +27,9 @@ const Header = styled.header`
         width: 51px;
         height: 51px;
 
-        /* background: url(image.png); */
-        background-color: purple;
+        background: url(${props => props.img});
+        background-color: white;
+        background-size: cover;
         border-radius: 98.5px;  
     }
 `

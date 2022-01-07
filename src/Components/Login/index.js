@@ -2,11 +2,14 @@ import logo from '../Images/logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import Container from '../GeneralStyles/styles'
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Loader from "react-loader-spinner"
+import UserContext from '../../context'
 
 export default function Login() {
     const navigate = useNavigate()
+
+    const {setApi} = useContext(UserContext)
 
     const [loading, setLoading] = useState(0)
     const [form, setForm] = useState(
@@ -23,7 +26,7 @@ export default function Login() {
         setLoading(1)
         promise.then(response => {
             setLoading(0)
-            console.log(response.data)
+            setApi(response.data)
             // kleyton@tt.com 123
             navigate('/hoje')
         })
