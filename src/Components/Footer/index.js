@@ -7,7 +7,7 @@ import UserContext from '../../context'
 
 export default function Footer() {
 
-    const {habitsToday, counter} = useContext(UserContext)
+    const { habitsToday, counter } = useContext(UserContext)
 
     return (
         <Container>

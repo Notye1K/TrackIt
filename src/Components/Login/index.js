@@ -2,14 +2,14 @@ import logo from '../Images/logo.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import Container from '../GeneralStyles/styles'
 import axios from 'axios'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Loader from "react-loader-spinner"
 import UserContext from '../../context'
 
 export default function Login() {
     const navigate = useNavigate()
 
-    const {setApi} = useContext(UserContext)
+    const { setApi } = useContext(UserContext)
 
     const [loading, setLoading] = useState(0)
     const [form, setForm] = useState(
@@ -18,6 +18,12 @@ export default function Login() {
             password: ""
         }
     )
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            navigate('/hoje')
+        }
+    }, [])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -28,6 +34,7 @@ export default function Login() {
             setLoading(0)
             setApi(response.data)
             // kleyton@tt.com 123
+            localStorage.setItem('user', JSON.stringify(response.data))
             navigate('/hoje')
         })
         promise.catch(erro => {

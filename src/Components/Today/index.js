@@ -28,15 +28,15 @@ export default function Today() {
         }, [api.token, check, setHabitsToday]
     )
 
-    function handleClick(id, status){
+    function handleClick(id, status) {
         let promise
-        if(status){
-            promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/uncheck`,'',
-            { headers: { Authorization: `Bearer ${api.token}` } })
+        if (status) {
+            promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/uncheck`, '',
+                { headers: { Authorization: `Bearer ${api.token}` } })
         }
-        else{
-            promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/check`,'',
-            { headers: { Authorization: `Bearer ${api.token}` } })
+        else {
+            promise = axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}/check`, '',
+                { headers: { Authorization: `Bearer ${api.token}` } })
         }
         promise.then(() => setCheck(!check))
         promise.catch(erro => alert(erro.response.data.details))
@@ -55,7 +55,7 @@ export default function Today() {
                 <div className="habits">
                     {habitsToday.length === 0 ? "Você não tem nenhum hábito cadastrado para hoje" : habitsToday.map(
                         i => <HabitToday key={i.id} id={i.id} name={i.name} done={i.done} click={handleClick}
-                        sequence={i.currentSequence} record={i.highestSequence}/>)}
+                            sequence={i.currentSequence} record={i.highestSequence} />)}
                 </div>
                 <div className='space' />
             </Container>
@@ -64,7 +64,7 @@ export default function Today() {
     )
 }
 
-function handleWeek(week){
+function handleWeek(week) {
     if (week === 0) {
         week = 'Domingo'
     } else if (week === 1) {

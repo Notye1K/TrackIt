@@ -1,8 +1,8 @@
 import Container from "./style"
 import check from '../Images/check.svg'
 
-export default function HabitToday(props){
-    function handleStatus(){
+export default function HabitToday(props) {
+    function handleStatus() {
         props.click(props.id, props.done)
     }
     return (
