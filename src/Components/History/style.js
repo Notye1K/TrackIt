@@ -38,6 +38,13 @@ const Container = styled.div`
         background: #ffff76;
         color: black;
     }
+
+    .none{
+        display: none;
+        h1{
+            color: red;
+        }
+    }
 `
 
 export default Container

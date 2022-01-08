@@ -10,6 +10,8 @@ import Container from './style'
 export default function History() {
     const [value, onChange] = useState(new Date())
     const [data, setData] = useState('')
+    const [none, setNone] = useState('none')
+    const [habits, setHabits] = useState([])
 
     const { api, setHabitsToday } = useContext(UserContext)
 
@@ -46,7 +48,7 @@ export default function History() {
 
             let classDate = ''
 
-            if (date.getMonth() === value.getMonth() && date.getDate() === value.getDate()) {
+            if (date.getMonth() === new Date().getMonth() && date.getDate() === new Date().getDate()) {
                 return classDate = 'hoje'
             }
 
@@ -63,6 +65,27 @@ export default function History() {
         }
     }
 
+    function clickDay(value, e){
+        if (data !== ''){
+            let string = ''
+            if (value.getDate().toString().length === 1) string += '0'
+            string += value.getDate().toString()
+            string += '/'
+            let month = value.getMonth() + 1
+            if (month.toString().length === 1) string += '0'
+            string += month.toString()
+            string += '/'
+            string += value.getFullYear().toString()
+
+            data.map(i => {
+                if(i.day === string){
+                    setHabits(i.habits)
+                    setNone('')
+                }
+            })
+        }
+    }
+
     return (
         <>
             <Header />
@@ -71,16 +94,27 @@ export default function History() {
                 <div>
                     <p>Histórico</p>
                     <Calendar
-                        activeStartDate={new Date(2022, 0, 5)}
                         onChange={onChange}
                         value={value}
                         calendarType='US'
                         tileClassName={tileClassName}
+                        onClickDay={clickDay}
                     />
                 </div>
+                {habits.map(i => <Habits key={i.id} none={none} habits={i} />)}
                 <div className="space" />
             </Container>
             <Footer />
         </>
+    )
+}
+
+function Habits({none, habits}){
+
+    return(
+        <div className={none}>
+            <h1>nome: {habits.name}</h1>
+            <p>feito: {habits.done ? 'sim' : 'nao'}</p>
+        </div>
     )
 }
