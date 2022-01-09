@@ -6,6 +6,7 @@ import UserContext from '../../context'
 import Header from '../Header'
 import Footer from '../Footer'
 import Container from './style'
+import getHabits from '../getHabits'
 
 export default function History() {
     const [value, onChange] = useState(new Date())
@@ -24,27 +25,12 @@ export default function History() {
     }, [])
 
     useEffect(
-        () => {
-            const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today',
-                { headers: { Authorization: `Bearer ${api.token}` } })
-            promise.then(response => {
-                setHabitsToday(response.data)
-            })
-            promise.catch(erro => alert(erro.response.data.details))
-        }, [api.token, setHabitsToday]
+        () => getHabits(setHabitsToday, api), [api.token, setHabitsToday]
     )
 
     function tileClassName({ date }) {
         if (data !== '') {
-            let string = ''
-            if (date.getDate().toString().length === 1) string += '0'
-            string += date.getDate().toString()
-            string += '/'
-            let month = date.getMonth() + 1
-            if (month.toString().length === 1) string += '0'
-            string += month.toString()
-            string += '/'
-            string += date.getFullYear().toString()
+            const string = formatDate(date)
 
             let classDate = ''
 
@@ -67,15 +53,7 @@ export default function History() {
 
     function clickDay(value, e) {
         if (data !== '') {
-            let string = ''
-            if (value.getDate().toString().length === 1) string += '0'
-            string += value.getDate().toString()
-            string += '/'
-            let month = value.getMonth() + 1
-            if (month.toString().length === 1) string += '0'
-            string += month.toString()
-            string += '/'
-            string += value.getFullYear().toString()
+            const string = formatDate(value)
 
             let reset = true
             data.map(i => {
@@ -121,4 +99,17 @@ function Habits({ none, habits }) {
             <h2>Foi feito: <span>{habits.done ? 'Sim' : 'Não'}</span></h2>
         </div>
     )
+}
+
+function formatDate(date) {
+    let string = ''
+    if (date.getDate().toString().length === 1) string += '0'
+    string += date.getDate().toString()
+    string += '/'
+    let month = date.getMonth() + 1
+    if (month.toString().length === 1) string += '0'
+    string += month.toString()
+    string += '/'
+    string += date.getFullYear().toString()
+    return string
 }

@@ -33,7 +33,6 @@ export default function Login() {
         promise.then(response => {
             setLoading(0)
             setApi(response.data)
-            // kleyton@tt.com 123
             localStorage.setItem('user', JSON.stringify(response.data))
             navigate('/hoje')
         })

@@ -23,9 +23,8 @@ export default function Register() {
 
         const promise = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up', form)
         setLoading(1)
-        promise.then(response => {
+        promise.then(() => {
             setLoading(0)
-            // kleyton@tt.com 123
             navigate('/')
         })
         promise.catch(erro => {

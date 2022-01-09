@@ -5,6 +5,8 @@ import Container from './style'
 import { useContext, useEffect, useState } from 'react'
 import UserContext from '../../context'
 import axios from "axios"
+import getHabits from '../getHabits'
+
 
 export default function Today() {
     const date = new Date();
@@ -18,14 +20,7 @@ export default function Today() {
     const [check, setCheck] = useState(true)
 
     useEffect(
-        () => {
-            const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today',
-                { headers: { Authorization: `Bearer ${api.token}` } })
-            promise.then(response => {
-                setHabitsToday(response.data)
-            })
-            promise.catch(erro => alert(erro.response.data.details))
-        }, [api.token, check, setHabitsToday]
+        () => getHabits(setHabitsToday, api), [api.token, check, setHabitsToday]
     )
 
     function handleClick(id, status) {

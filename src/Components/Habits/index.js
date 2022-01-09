@@ -8,6 +8,7 @@ import Buttons from '../Buttons'
 import Habit from '../Habit'
 import UserContext from '../../context'
 import axios from 'axios'
+import getHabits from '../getHabits'
 
 
 export default function Habits() {
@@ -34,14 +35,7 @@ export default function Habits() {
     )
 
     useEffect(
-        () => {
-            const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today',
-                { headers: { Authorization: `Bearer ${api.token}` } })
-            promise.then(response => {
-                setHabitsToday(response.data)
-            })
-            promise.catch(erro => alert(erro.response.data.details))
-        }, [api.token, setHabitsToday]
+        () => getHabits(setHabitsToday, api), [api.token, setHabitsToday]
     )
 
     function handleSave() {
@@ -92,7 +86,7 @@ export default function Habits() {
                             </button>
                         </div>
                     </div>
-                    <div className="habits">
+                    <div className={habits.length !== 0 ? `habits` : ''}>
                         {habits.map(i => <Habit key={i.id} refresh={{ success, setSuccess }} id={i.id} name={i.name} days={i.days} />)}
                     </div>
                     <span>
