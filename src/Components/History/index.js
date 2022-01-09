@@ -65,8 +65,8 @@ export default function History() {
         }
     }
 
-    function clickDay(value, e){
-        if (data !== ''){
+    function clickDay(value, e) {
+        if (data !== '') {
             let string = ''
             if (value.getDate().toString().length === 1) string += '0'
             string += value.getDate().toString()
@@ -77,12 +77,16 @@ export default function History() {
             string += '/'
             string += value.getFullYear().toString()
 
+            let reset = true
             data.map(i => {
-                if(i.day === string){
+                if (i.day === string) {
                     setHabits(i.habits)
+                    reset = false
                     setNone('')
                 }
             })
+
+            if (reset) setNone('none')
         }
     }
 
@@ -91,7 +95,7 @@ export default function History() {
             <Header />
             <Container>
                 <div className="space" />
-                <div>
+                <div className='margin'>
                     <p>Histórico</p>
                     <Calendar
                         onChange={onChange}
@@ -100,8 +104,8 @@ export default function History() {
                         tileClassName={tileClassName}
                         onClickDay={clickDay}
                     />
+                    {habits.map(i => <Habits key={i.id} none={none} habits={i} />)}
                 </div>
-                {habits.map(i => <Habits key={i.id} none={none} habits={i} />)}
                 <div className="space" />
             </Container>
             <Footer />
@@ -109,12 +113,12 @@ export default function History() {
     )
 }
 
-function Habits({none, habits}){
+function Habits({ none, habits }) {
 
-    return(
-        <div className={none}>
-            <h1>nome: {habits.name}</h1>
-            <p>feito: {habits.done ? 'sim' : 'nao'}</p>
+    return (
+        <div className={`history ${none}`}>
+            <h1>Hábito: <span>{habits.name}</span></h1>
+            <h2>Foi feito: <span>{habits.done ? 'Sim' : 'Não'}</span></h2>
         </div>
     )
 }

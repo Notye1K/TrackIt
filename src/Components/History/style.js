@@ -12,6 +12,10 @@ const Container = styled.div`
         height: 70px;
     }
 
+    .margin{
+        margin-bottom: 50px;
+    }
+
     p{
         margin-top: 28px;
         margin-bottom: 11px;
@@ -39,11 +43,28 @@ const Container = styled.div`
         color: black;
     }
 
+    .history{
+        font-family: 'Lexend Deca', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17.976px;
+        line-height: 15px;
+        color: #126BA5;
+
+        h1{
+            margin-top: 15px;
+        }
+        h2{
+            margin-top: 5px;
+        }
+        span{
+            color: #666666;
+
+        }
+    }
+
     .none{
         display: none;
-        h1{
-            color: red;
-        }
     }
 `
 
