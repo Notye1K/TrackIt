@@ -8,6 +8,6 @@ react, create-react-app, styled-components, axios, react-router-dom, react-calen
 ## How to run
 1. Clone this repository
 2. Install dependencies
-> `npm i`
+`npm i`
 3. Open it
-> `npm run start`
+`npm run start`
