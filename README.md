@@ -10,7 +10,7 @@ An easy way to track your habits and see your history
 
 ![historico](https://user-images.githubusercontent.com/71580986/149683373-31cc8d26-6625-4ad5-b90d-73a8c3135c4b.png)
 
-Try it out now at <https://track-it-inky.vercel.app/>
+Try it out now at <https://track-it-inky.vercel.app/> -- backend offline! :(
 
 ## About
 
